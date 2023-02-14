@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
+//import reactLogo from './assets/react.svg';
 import './App.css';
 
 function App() {
@@ -7,26 +7,26 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React CAN YOU SEE THIS STAR moon Sun</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <header>
+      <h1>Fight!</h1>
+      </header>
+      <section id="playerInstructions">
+        <h3>Fight your opponent using spells!</h3>
+      </section>
+      <section id="characters">
+        <div>
+        {/* where you display the characters to fight */}
+        </div>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+        {/* their health  */}
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <p>
+        {/* spell outcome/who attacked who etc */}
+        </p>
+        <button>Attack</button>
+        <button>Heal</button>
+      </section>
+      
     </div>
   );
 }
