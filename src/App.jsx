@@ -1,9 +1,26 @@
-import { useState } from 'react';
-//import reactLogo from './assets/react.svg';
 import './App.css';
-
+import Characters from './characters';
+import Battle from './battleoutcome.jsx';
+import { useState } from 'react';
 function App() {
-  const [, setCount] = useState(0);
+  let [randomSpell, setRandomSpell] = useState('');
+
+  const Attack = () => {
+    const randomSpellPicker = Math.floor(Math.random() * 2);
+
+    switch (randomSpellPicker) {
+      case 0:
+        setRandomSpell('crucio');
+
+        break;
+      case 1:
+        setRandomSpell('expelliamus');
+
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <div className="App">
@@ -13,22 +30,10 @@ function App() {
       <section id="playerInstructions">
         <h3>Fight your opponent using spells!</h3>
       </section>
-      <section id="characters">
-        <div id="p1flex">
-          <div id="P1">{/* player one fight display */}</div>
-          <p>{/* their health  */} 0</p>
-        </div>
-        <div id="cpuflex">
-          <div id="P2">{/* CPU fight display */}</div>
-          <p>{/* their health  */} 0</p>
-        </div>
-      </section>
-
-      <p>
-        {/* spell outcome/who attacked who etc */}
-        "You attacked the enemy for 0 damage!"
-      </p>
-      <button>Attack</button>
+      <Characters />
+      <Battle randomSpell={randomSpell} />
+      <button onClick={Attack}>Attack</button>
+      <p>{randomSpell}</p>
       <button>Heal</button>
     </div>
   );
