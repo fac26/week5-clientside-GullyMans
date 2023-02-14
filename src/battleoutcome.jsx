@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-export default function Battle({ randomSpell }) {
+export default function Battle({ randomSpell, healMessage }) {
   // spells
-  const heal = ['heal'];
 
   // Damage
   let attackDamage = '';
@@ -17,7 +16,7 @@ export default function Battle({ randomSpell }) {
       'Defending player has been hit by the expelliamus spell with a damage of ';
   } else {
     attackDamage = '';
-    battleOutput = '';
+    battleOutput = healMessage;
   }
 
   // Battle outcome
