@@ -21,15 +21,11 @@ export default function Characters() {
     <section id="characters">
       <div id="p1flex">
         <div id="P1">{/* player one fight display */}</div>
-        <p>
-          {/* their health  */} {health.Player1}{' '}
-        </p>
+        <p>{/* their health  {health.Player1}{' '} */}</p>
       </div>
       <div id="cpuflex">
         <div id="P2">{/* CPU fight display */}</div>
-        <p>
-          {/* their health  */} {health.Player2}
-        </p>
+        <p>{/* their health  {health.Player2} */}</p>
       </div>
     </section>
   );

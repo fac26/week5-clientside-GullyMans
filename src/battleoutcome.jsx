@@ -1,31 +1,31 @@
-export default function Battle() {
+import { useState } from 'react';
+
+export default function Battle({ randomSpell }) {
   // spells
-  //   const attackspells = ['crucio', 'expelliamus'];
   const heal = ['heal'];
-  let randomSpell = '';
 
-  const Attack = function Attack() {
-    const randomSpellPicker = Math.floor(Math.random() * 2);
+  // Damage
+  let attackDamage = '';
+  let battleOutput = '';
+  if (randomSpell === 'crucio') {
+    attackDamage = 10;
+    battleOutput =
+      'Defending player has been hit by the crucio spell with a damage of ';
+  } else if (randomSpell === 'expelliamus') {
+    attackDamage = 20;
+    battleOutput =
+      'Defending player has been hit by the expelliamus spell with a damage of ';
+  } else {
+    attackDamage = '';
+    battleOutput = '';
+  }
 
-    switch (randomSpellPicker) {
-      case 0:
-        randomSpell = 'crucio';
-        console.log(randomSpell);
-        break;
-      case 1:
-        randomSpell = 'expelliamus';
-        console.log(randomSpell);
-        break;
-      default:
-        break;
-    }
-  };
+  // Battle outcome
 
   return (
-    <p>
-      {/* spell outcome/who attacked who etc */}
-      {'Player1'} attacked the {'CPU'} for {'health.currentPlayer'} damage with
-      the {randomSpell}!"
+    <p className="battleOutput">
+      {battleOutput}
+      {attackDamage}
     </p>
   );
 }
