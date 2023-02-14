@@ -8,27 +8,28 @@ function App() {
   return (
     <div className="App">
       <header>
-      <h1>Fight!</h1>
+        <h1>Fight!</h1>
       </header>
       <section id="playerInstructions">
         <h3>Fight your opponent using spells!</h3>
       </section>
       <section id="characters">
-        <div id="P1">
-        {/* where you display the characters to fight */}
-
+        <div id="p1flex">
+          <div id="P1">{/* player one fight display */}</div>
+          <p>{/* their health  */} 0</p>
         </div>
-        <p>
-        {/* their health  */} 0 
-        </p>
-        <p>
+        <div id="cpuflex">
+          <div id="P2">{/* CPU fight display */}</div>
+          <p>{/* their health  */} 0</p>
+        </div>
+      </section>
+
+      <p>
         {/* spell outcome/who attacked who etc */}
         "You attacked the enemy for 0 damage!"
-        </p>
-        <button>Attack</button>
-        <button>Heal</button>
-      </section>
-      
+      </p>
+      <button>Attack</button>
+      <button>Heal</button>
     </div>
   );
 }
