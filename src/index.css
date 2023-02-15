@@ -17,15 +17,21 @@
 #P1 {
   width: 6rem;
   height: 6rem;
-  border-radius: 50%;
-  background-color: #f02323;
+  background-image: url('/bananajoe.webp');
+  background-position: center center;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
 }
 
 #P2 {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
-  background-color: blue;
+  background-image: url('/vs.png');
+  background-position: center center;
+  background-size: 85%;
+  background-repeat: no-repeat;
 }
 
 #characters {
