@@ -40,6 +40,14 @@
   align-items: center;
 }
 
+.battleOutput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  max-width: 333.933px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
