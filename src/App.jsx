@@ -17,6 +17,29 @@ function App() {
 
     if (randomSpell === 'crucio') {
       // attackDamage = 10;
+      setCpuHealth((previousCpuHealth) => {
+        return previousCpuHealth - 10;
+      });
+    } else {
+      // attackDamage = 20;
+      setCpuHealth((previousCpuHealth) => {
+        return previousCpuHealth - 20;
+      });
+    }
+    setTimeout(() => {
+      const cpuFuncs = [CpuAttack(), CpuHeal()];
+      const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
+      randomCpuFunc;
+    }, 5000);
+  };
+
+  const CpuAttack = () => {
+    const randomAttack = listofspells[Math.floor(Math.random() * 2)];
+    randomSpell = randomAttack;
+    setRandomSpell(randomSpell);
+
+    if (randomSpell === 'crucio') {
+      // attackDamage = 10;
       setPlayerHealth((previousPlayerHealth) => {
         return previousPlayerHealth - 10;
       });
@@ -33,6 +56,19 @@ function App() {
     setRandomSpell(randomSpell);
     setPlayerHealth((previousPlayerHealth) => {
       return previousPlayerHealth + 10;
+    });
+    setTimeout(() => {
+      const cpuFuncs = [CpuAttack(), CpuHeal()];
+      const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
+      randomCpuFunc;
+    }, 5000);
+  };
+
+  const CpuHeal = () => {
+    randomSpell = healmessage;
+    setRandomSpell(randomSpell);
+    setCpuHealth((previousCpuHealth) => {
+      return previousCpuHealth + 10;
     });
   };
 
