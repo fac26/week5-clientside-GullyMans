@@ -1,6 +1,4 @@
-//import { useState } from 'react';
-
-export default function Battle({randomSpell, setRandomSpell}) {
+export default function Battle({randomSpell}) {
   // spells
 
   // Damage

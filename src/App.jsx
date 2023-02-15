@@ -35,7 +35,7 @@ function App() {
         <h3>Fight your opponent using spells!</h3>
       </section>
       <Characters />
-      <Battle randomSpell={randomSpell} setRandomSpell={setRandomSpell} />
+      <Battle randomSpell={randomSpell} />
       <button onClick={Attack}>Attack</button>
       <button onClick={Heal}>Heal</button>
     </div>
