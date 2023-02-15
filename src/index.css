@@ -20,11 +20,7 @@
 
 #P1 {
   width: 6rem;
-  height: 6rem;
-  background-image: url('/bananajoe.webp');
-  background-position: center center;
-  background-size: 85%;
-  background-repeat: no-repeat;
+  height: 7rem;
   transform: scaleX(-1);
 }
 
