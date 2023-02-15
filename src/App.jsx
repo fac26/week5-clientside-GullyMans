@@ -27,9 +27,9 @@ function App() {
       });
     }
     setTimeout(() => {
-      const cpuFuncs = [CpuAttack(), CpuHeal()];
+      const cpuFuncs = [CpuAttack, CpuHeal];
       const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
-      randomCpuFunc;
+      randomCpuFunc();
     }, 5000);
   };
 
@@ -40,6 +40,7 @@ function App() {
 
     if (randomSpell === 'crucio') {
       // attackDamage = 10;
+      console.log('Im in the cpu attack function');
       setPlayerHealth((previousPlayerHealth) => {
         return previousPlayerHealth - 10;
       });
@@ -58,9 +59,9 @@ function App() {
       return previousPlayerHealth + 10;
     });
     setTimeout(() => {
-      const cpuFuncs = [CpuAttack(), CpuHeal()];
+      const cpuFuncs = [CpuAttack, CpuHeal];
       const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
-      randomCpuFunc;
+      randomCpuFunc();
     }, 5000);
   };
 
