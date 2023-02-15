@@ -2,25 +2,29 @@ import './App.css';
 import Characters from './characters';
 import Battle from './battleoutcome.jsx';
 import { useState } from 'react';
+//import { Attack, Heal } from './battleoutcome'
+
 function App() {
   let [randomSpell, setRandomSpell] = useState('');
 
+  const listofspells = ['crucio', 'expelliamus'];
+  const healmessage = 'heal';
+
   const Attack = () => {
-    const randomSpellPicker = Math.floor(Math.random() * 2);
+    const randomAttack= listofspells[Math.floor(Math.random() * 2)];
+    randomSpell = randomAttack;
+    setRandomSpell(randomSpell);
+    console.log(randomSpell)
+  }
 
-    switch (randomSpellPicker) {
-      case 0:
-        setRandomSpell('crucio');
-
-        break;
-      case 1:
-        setRandomSpell('expelliamus');
-
-        break;
-      default:
-        break;
-    }
+  const Heal = () => {
+    //setHealMessage('Attacking player healed themself');
+    //console.log(healMessage);
+    randomSpell = healmessage;
+    setRandomSpell(randomSpell)
+    console.log('heal activated');
   };
+
 
   return (
     <div className="App">
@@ -33,10 +37,8 @@ function App() {
       <Characters />
       <Battle randomSpell={randomSpell} />
       <button onClick={Attack}>Attack</button>
-      <p>{randomSpell}</p>
-      <button>Heal</button>
+      <button onClick={Heal}>Heal</button>
     </div>
   );
-}
-
+  }
 export default App;
