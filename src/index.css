@@ -14,6 +14,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#playerInstructions {
+  max-width: 333.933px;
+}
+
 #P1 {
   width: 6rem;
   height: 6rem;
