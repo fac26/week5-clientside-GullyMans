@@ -2,29 +2,39 @@ import './App.css';
 import Characters from './characters';
 import Battle from './battleoutcome.jsx';
 import { useState } from 'react';
-//import { Attack, Heal } from './battleoutcome'
 
 function App() {
   let [randomSpell, setRandomSpell] = useState('');
-
+  const [playerHealth, setPlayerHealth] = useState(100);
+  const [cpuHealth, setCpuHealth] = useState(100);
   const listofspells = ['crucio', 'expelliamus'];
   const healmessage = 'heal';
 
   const Attack = () => {
-    const randomAttack= listofspells[Math.floor(Math.random() * 2)];
+    const randomAttack = listofspells[Math.floor(Math.random() * 2)];
     randomSpell = randomAttack;
     setRandomSpell(randomSpell);
-    console.log(randomSpell)
-  }
 
-  const Heal = () => {
-    //setHealMessage('Attacking player healed themself');
-    //console.log(healMessage);
-    randomSpell = healmessage;
-    setRandomSpell(randomSpell)
-    console.log('heal activated');
+    if (randomSpell === 'crucio') {
+      // attackDamage = 10;
+      setPlayerHealth((previousPlayerHealth) => {
+        return previousPlayerHealth - 10;
+      });
+    } else {
+      // attackDamage = 20;
+      setPlayerHealth((previousPlayerHealth) => {
+        return previousPlayerHealth - 20;
+      });
+    }
   };
 
+  const Heal = () => {
+    randomSpell = healmessage;
+    setRandomSpell(randomSpell);
+    setPlayerHealth((previousPlayerHealth) => {
+      return previousPlayerHealth + 10;
+    });
+  };
 
   return (
     <div className="App">
@@ -34,11 +44,11 @@ function App() {
       <section id="playerInstructions">
         <h3>Fight your opponent using spells!</h3>
       </section>
-      <Characters />
-      <Battle randomSpell={randomSpell} />
+      <Characters playerHealth={playerHealth} cpuHealth={cpuHealth} />
+      <Battle randomSpell={randomSpell} Attack={Attack} />
       <button onClick={Attack}>Attack</button>
       <button onClick={Heal}>Heal</button>
     </div>
   );
-  }
+}
 export default App;
