@@ -1,9 +1,4 @@
-import { useState } from 'react';
-// import './App.css';
-//import Battle from './battleoutcome';
-
 export default function Characters({ playerHealth, cpuHealth, playerImage }) {
-  //const [image, setImage] = useState('/bananajoe.webp');
   return (
     <section id="characters">
       <div id="p1flex">
@@ -14,6 +9,7 @@ export default function Characters({ playerHealth, cpuHealth, playerImage }) {
         <div id="P2">{/* CPU fight display */}</div>
         <p>{cpuHealth}</p>
       </div>
+      {/* <p>It is {currentPlayer}</p> */}
     </section>
   );
 }

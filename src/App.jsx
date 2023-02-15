@@ -16,7 +16,7 @@ function App() {
     const randomAttack = listofspells[Math.floor(Math.random() * 2)];
     randomSpell = randomAttack;
     setRandomSpell(randomSpell);
-    setPlayerImage('angryjoe.jpeg');
+    setPlayerImage('angryjoe.png');
     if (randomSpell === 'crucio') {
       // attackDamage = 10;
       setCpuHealth((previousCpuHealth) => {
@@ -29,6 +29,8 @@ function App() {
       });
     }
     setTimeout(() => {
+      //it's cpu's turn here!
+      console.log('my turn bish')
       const cpuFuncs = [CpuAttack, CpuHeal];
       const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
       randomCpuFunc();
@@ -57,6 +59,7 @@ function App() {
   const Heal = () => {
     randomSpell = healmessage;
     setRandomSpell(randomSpell);
+    setPlayerImage('bananajoe.webp');
     setPlayerHealth((previousPlayerHealth) => {
       return previousPlayerHealth + 10;
     });
