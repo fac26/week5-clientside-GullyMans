@@ -79,7 +79,10 @@ function App() {
         <h1>Fight!</h1>
       </header>
       <section id="playerInstructions">
-        <h3>Fight your opponent using spells!</h3>
+        <h3>
+          Use strategy to destroy VsCode and play as everyone's champion, BANANA
+          JOE!
+        </h3>
       </section>
       <Characters playerHealth={playerHealth} cpuHealth={cpuHealth} />
       <Battle randomSpell={randomSpell} Attack={Attack} />
