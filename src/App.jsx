@@ -2,28 +2,29 @@ import './App.css';
 import Characters from './characters';
 import Battle from './battleoutcome.jsx';
 import { useState } from 'react';
+//import { Attack, Heal } from './battleoutcome'
 
 function App() {
   let [randomSpell, setRandomSpell] = useState('');
-  let [healMessage, setHealMessage] = useState('');
 
-  const listofspells = ['crucio', 'expelliamus', 'heal'];
+  const listofspells = ['crucio', 'expelliamus'];
+  const healmessage = 'heal';
 
   const Attack = () => {
-    randomSpellPicker = listofspells[Math.floor(Math.random() * 2)];
-    console.log(randomSpellPicker)
-    setRandomSpell(randomSpell);//displays nothing
+    const randomAttack= listofspells[Math.floor(Math.random() * 2)];
+    randomSpell = randomAttack;
+    setRandomSpell(randomSpell);
+    console.log(randomSpell)
   }
-  
-  // const Heal = () => {
-  //   // //setHealMessage('Attacking player healed themself');
-  //   // console.log('heal activated');
-  //   // return (
-  //   // <p className="battleOutput">
-  //   //   hello
-  //   // </p>)
 
-  // };
+  const Heal = () => {
+    //setHealMessage('Attacking player healed themself');
+    //console.log(healMessage);
+    randomSpell = healmessage;
+    setRandomSpell(randomSpell)
+    console.log('heal activated');
+  };
+
 
   return (
     <div className="App">
@@ -34,9 +35,9 @@ function App() {
         <h3>Fight your opponent using spells!</h3>
       </section>
       <Characters />
-      <Battle randomSpellPicker={randomSpellPicker} healMessage={healMessage}/>
+      <Battle randomSpell={randomSpell} setRandomSpell={setRandomSpell} />
       <button onClick={Attack}>Attack</button>
-      <button>Heal</button>
+      <button onClick={Heal}>Heal</button>
     </div>
   );
   }

@@ -1,22 +1,22 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 
-export default function Battle({ randomSpellPicker, healMessage }) {
+export default function Battle({randomSpell, setRandomSpell}) {
   // spells
 
   // Damage
   let attackDamage = '';
   let battleOutput = '';
 
-  if (randomSpellPicker === 'crucio') {
+  if (randomSpell === 'crucio') {
     attackDamage = 10;
     battleOutput = 'Defending player has been hit by the crucio spell with a damage of ';
-  } else if (randomSpellPicker === 'expelliamus') {
+  } else if (randomSpell === 'expelliamus') {
     attackDamage = 20;
     battleOutput =
       'Defending player has been hit by the expelliamus spell with a damage of ';
-  } else {
-    attackDamage = '';
-    battleOutput = healMessage || '';
+  } else if (randomSpell === 'heal') {
+   // attackDamage = '';
+    battleOutput = 'Attacking player healed themself';
   }
 
   // Battle outcome
@@ -24,7 +24,8 @@ export default function Battle({ randomSpellPicker, healMessage }) {
   return (
     <p className="battleOutput">
       {battleOutput}
-      {attackDamage}
+      {attackDamage || ''}
     </p>
   );
-}
+  }
+
