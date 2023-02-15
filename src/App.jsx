@@ -7,6 +7,8 @@ function App() {
   let [randomSpell, setRandomSpell] = useState('');
   const [playerHealth, setPlayerHealth] = useState(100);
   const [cpuHealth, setCpuHealth] = useState(100);
+  const [playerImage, setPlayerImage] = useState('bananajoe.webp');
+
   const listofspells = ['crucio', 'expelliamus'];
   const healmessage = 'heal';
 
@@ -14,7 +16,7 @@ function App() {
     const randomAttack = listofspells[Math.floor(Math.random() * 2)];
     randomSpell = randomAttack;
     setRandomSpell(randomSpell);
-
+    setPlayerImage('angryjoe.jpeg');
     if (randomSpell === 'crucio') {
       // attackDamage = 10;
       setCpuHealth((previousCpuHealth) => {
@@ -84,7 +86,7 @@ function App() {
           JOE!
         </h3>
       </section>
-      <Characters playerHealth={playerHealth} cpuHealth={cpuHealth} />
+      <Characters playerHealth={playerHealth} cpuHealth={cpuHealth} playerImage={playerImage} />
       <Battle randomSpell={randomSpell} Attack={Attack} />
       <button onClick={Attack}>Attack</button>
       <button onClick={Heal}>Heal</button>
