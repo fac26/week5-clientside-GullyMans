@@ -9,7 +9,6 @@ export default function Characters({ playerHealth, cpuHealth, playerImage, vsima
       <img  src={vsimage} id="P2"/>
         <p>{cpuHealth}</p>
       </div>
-      {/* <p>It is {currentPlayer}</p> */}
     </section>
   );
 }

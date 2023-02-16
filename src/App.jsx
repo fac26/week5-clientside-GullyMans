@@ -1,7 +1,7 @@
 import './App.css';
 import Characters from './Characters';
 import Battle from './Battle.jsx';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const listofspells = ['crucio', 'expelliamus'];
@@ -14,7 +14,7 @@ function App() {
   const [cpuHealth, setCpuHealth] = useState(100);
   const [playerImage, setPlayerImage] = useState('bananajoe.webp');
   const [vsimage, setVsimage] = useState('vs.png');
-  const [currentPlayer, setCurrentPlayer] = useState('Player1')
+  const [currentPlayer, setCurrentPlayer] = useState('Banana Joe')
 
   const Attack = () => {
     const randomAttack = listofspells[Math.floor(Math.random() * 2)];
@@ -38,7 +38,7 @@ function App() {
       randomCpuFunc();
       setCurrentPlayer('VSCode'); 
     }, 5000);
-    setCurrentPlayer('Player1');
+    setCurrentPlayer('Banana Joe');
   };
 
   const Heal = () => {
@@ -48,14 +48,13 @@ function App() {
     setPlayerHealth((previousPlayerHealth) => {
       return previousPlayerHealth + 10;
     });
-    //setCurrentPlayer('VSCode');
     setTimeout(() => {
       const cpuFuncs = [CpuAttack, CpuHeal];
       const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
       randomCpuFunc();
       setCurrentPlayer('VSCode')
     }, 5000);
-    setCurrentPlayer('Player1')
+    setCurrentPlayer('Banana Joe')
   };
 
   const CpuAttack = () => {
@@ -76,8 +75,6 @@ function App() {
     }
   };
 
-  
-
   const CpuHeal = () => {
     setVsimage('vs.png');
     randomSpell = healmessage;
@@ -87,6 +84,14 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    if (playerHealth <= 0) {
+      alert("VSCode Wins!");
+    } else if (cpuHealth <= 0) {
+      alert("Banana Joe Wins!");
+    }
+  }, []); // pass an empty array as the second argument to run only once on mount
+  
   return (
     <div className="App">
       <header>
