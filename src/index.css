@@ -63,6 +63,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: white;
+  background-color: rgb(29, 30, 55);
 }
 
 h1 {
@@ -80,6 +82,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: rgb(218, 20, 172);
 }
 button:hover {
   border-color: #646cff;

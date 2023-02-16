@@ -2,6 +2,7 @@ import './App.css';
 import Characters from './characters';
 import Battle from './battleoutcome.jsx';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function App() {
   let [randomSpell, setRandomSpell] = useState('');
@@ -93,6 +94,8 @@ function App() {
       <Battle randomSpell={randomSpell} Attack={Attack} />
       <button onClick={Attack}>Attack</button>
       <button onClick={Heal}>Heal</button>
+      <br />
+      <Link to="/">HOME</Link>
     </div>
   );
 }
