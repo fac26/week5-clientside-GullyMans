@@ -19,11 +19,11 @@ function App() {
   
 
   const Attack = () => {
+    //setCurrentPlayer('VSCode');
     const randomAttack = listofspells[Math.floor(Math.random() * 2)];
     randomSpell = randomAttack;
     setRandomSpell(randomSpell);
     setPlayerImage('angryjoe.png');
-    setCurrentPlayer('VSCode');
     if (randomSpell === 'crucio') {
       setCpuHealth((previousCpuHealth) => {
         return previousCpuHealth - 10;
@@ -35,38 +35,41 @@ function App() {
     }
     
     setTimeout(() => {
-      setCurrentPlayer('VSCode');
       //it's cpu's turn here!
       // setTimeout(() => {
       //   const element = <p>VSCode is thinking...</p>
       // }, 2000);
+      //setCurrentPlayer('VSCode')
       console.log('my turn bish')
       const cpuFuncs = [CpuAttack, CpuHeal];
       const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
       randomCpuFunc();
-      setCurrentPlayer('Player1'); //might move on line 46
+      setCurrentPlayer('VSCode'); //might move on line 46
     }, 5000);
-    
+    setCurrentPlayer('Player1');
   };
 
   const Heal = () => {
+    
     randomSpell = healmessage;
     setRandomSpell(randomSpell);
     setPlayerImage('bananajoe.webp');
-    setCurrentPlayer('VSCode');
     setPlayerHealth((previousPlayerHealth) => {
       return previousPlayerHealth + 10;
     });
     //setCurrentPlayer('VSCode');
     setTimeout(() => {
+      
       const cpuFuncs = [CpuAttack, CpuHeal];
       const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
       randomCpuFunc();
-    setCurrentPlayer('Player1'); 
+      setCurrentPlayer('VSCode')
     }, 5000);
+    setCurrentPlayer('Player1')
   };
 
   const CpuAttack = () => {
+    //setCurrentPlayer('VSCode')
     const randomAttack = listofspells[Math.floor(Math.random() * 2)];
     randomSpell = randomAttack;
     setRandomSpell(randomSpell);
@@ -88,6 +91,7 @@ function App() {
   
 
   const CpuHeal = () => {
+    
     randomSpell = healmessage;
     setRandomSpell(randomSpell);
     setCpuHealth((previousCpuHealth) => {
@@ -107,7 +111,7 @@ function App() {
         </h3>
       </section>
       <Characters playerHealth={playerHealth} cpuHealth={cpuHealth} playerImage={playerImage} />
-      <Battle randomSpell={randomSpell} Attack={Attack} currentPlayer={'Player1'}/>
+      <Battle randomSpell={randomSpell} Attack={Attack} currentPlayer={currentPlayer}/>
       <button onClick={Attack}>Attack</button>
       <button onClick={Heal}>Heal</button>
     </div>
