@@ -1,4 +1,4 @@
-export default function Characters({ playerHealth, cpuHealth, playerImage }) {
+export default function Characters({ playerHealth, cpuHealth, playerImage, vsimage }) {
   return (
     <section id="characters">
       <div id="p1flex">
@@ -6,7 +6,7 @@ export default function Characters({ playerHealth, cpuHealth, playerImage }) {
         <p>{playerHealth}</p>
       </div>
       <div id="cpuflex">
-        <div id="P2">{/* CPU fight display */}</div>
+      <img  src={vsimage} id="P2"/>
         <p>{cpuHealth}</p>
       </div>
       {/* <p>It is {currentPlayer}</p> */}
