@@ -12,14 +12,10 @@ function App() {
   const [playerHealth, setPlayerHealth] = useState(100);
   const [cpuHealth, setCpuHealth] = useState(100);
   const [playerImage, setPlayerImage] = useState('bananajoe.webp');
-  //const Players = ['Player1', 'VSCode']
-
+  const [vsimage, setVsimage] = useState('vs.png');
   const [currentPlayer, setCurrentPlayer] = useState('Player1')
 
-  
-
   const Attack = () => {
-    //setCurrentPlayer('VSCode');
     const randomAttack = listofspells[Math.floor(Math.random() * 2)];
     randomSpell = randomAttack;
     setRandomSpell(randomSpell);
@@ -35,22 +31,16 @@ function App() {
     }
     
     setTimeout(() => {
-      //it's cpu's turn here!
-      // setTimeout(() => {
-      //   const element = <p>VSCode is thinking...</p>
-      // }, 2000);
-      //setCurrentPlayer('VSCode')
       console.log('my turn bish')
       const cpuFuncs = [CpuAttack, CpuHeal];
       const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
       randomCpuFunc();
-      setCurrentPlayer('VSCode'); //might move on line 46
+      setCurrentPlayer('VSCode'); 
     }, 5000);
     setCurrentPlayer('Player1');
   };
 
   const Heal = () => {
-    
     randomSpell = healmessage;
     setRandomSpell(randomSpell);
     setPlayerImage('bananajoe.webp');
@@ -59,7 +49,6 @@ function App() {
     });
     //setCurrentPlayer('VSCode');
     setTimeout(() => {
-      
       const cpuFuncs = [CpuAttack, CpuHeal];
       const randomCpuFunc = cpuFuncs[Math.floor(Math.random() * 2)];
       randomCpuFunc();
@@ -69,19 +58,17 @@ function App() {
   };
 
   const CpuAttack = () => {
-    //setCurrentPlayer('VSCode')
+    setVsimage('vscodeattack.png')
     const randomAttack = listofspells[Math.floor(Math.random() * 2)];
     randomSpell = randomAttack;
     setRandomSpell(randomSpell);
 
     if (randomSpell === 'crucio') {
-      // attackDamage = 10;
       console.log('Im in the cpu attack function');
       setPlayerHealth((previousPlayerHealth) => {
         return previousPlayerHealth - 10;
       });
     } else {
-      // attackDamage = 20;
       setPlayerHealth((previousPlayerHealth) => {
         return previousPlayerHealth - 20;
       });
@@ -91,7 +78,7 @@ function App() {
   
 
   const CpuHeal = () => {
-    
+    setVsimage('vs.png');
     randomSpell = healmessage;
     setRandomSpell(randomSpell);
     setCpuHealth((previousCpuHealth) => {
@@ -110,7 +97,7 @@ function App() {
           JOE!
         </h3>
       </section>
-      <Characters playerHealth={playerHealth} cpuHealth={cpuHealth} playerImage={playerImage} />
+      <Characters playerHealth={playerHealth} cpuHealth={cpuHealth} playerImage={playerImage} vsimage={vsimage} />
       <Battle randomSpell={randomSpell} Attack={Attack} currentPlayer={currentPlayer}/>
       <button onClick={Attack}>Attack</button>
       <button onClick={Heal}>Heal</button>

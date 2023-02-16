@@ -27,11 +27,6 @@
 #P2 {
   width: 6rem;
   height: 6rem;
-  border-radius: 50%;
-  background-image: url('/vs.png');
-  background-position: center center;
-  background-size: 85%;
-  background-repeat: no-repeat;
 }
 
 #characters {
